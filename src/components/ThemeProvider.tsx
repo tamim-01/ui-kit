@@ -46,12 +46,7 @@ const ThemeProvider = () => {
         >
           Ocean
         </button>
-        <button
-          onClick={() => toggleTheme("sunset")}
-          className="px-4 py-2  rounded"
-        >
-          sunset
-        </button>
+
         <button
           onClick={() => toggleTheme("purple")}
           className="px-4 py-2  rounded"
