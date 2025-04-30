@@ -8,6 +8,12 @@ interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean;
   error?: boolean;
   errorMessage?: string;
+  disabled?: boolean;
+  className?: string;
+  id?: string;
+  accept?: string;
+  multiple?: boolean;
+  required?: boolean;
 }
 
 const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
@@ -22,6 +28,9 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
       error = false,
       errorMessage,
       id,
+      accept = "/*",
+      multiple,
+      required = false,
       ...props
     },
     ref
@@ -45,6 +54,9 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
           </label>
         )}
         <input
+          multiple={multiple}
+          required={required}
+          accept={accept}
           type="file"
           ref={ref}
           id={id}

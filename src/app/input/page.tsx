@@ -189,7 +189,6 @@ const InputExamples = () => {
           <div className="col-span-1 md:col-span-2">
             <RangeInput
               label={`Satisfaction Level: ${satisfaction}/10`}
-              type="range"
               min={0}
               max={10}
               step={0}
@@ -203,7 +202,6 @@ const InputExamples = () => {
 
           <FileInput
             label="Upload Profile Picture"
-            type="file"
             accept="image/*"
             variant="default"
             inputSize="md"
