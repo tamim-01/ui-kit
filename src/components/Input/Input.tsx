@@ -95,7 +95,6 @@ export interface InputProps {
   fullWidth?: boolean;
   className?: string;
   checked?: boolean;
-  defaultChecked?: boolean;
   id?: string;
   name?: string;
   min?: number | string;
@@ -126,7 +125,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       defaultValue,
       onChange,
       checked,
-      defaultChecked,
       id,
       name,
       min,
@@ -168,7 +166,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                   value={option.value}
                   disabled={disabled}
                   checked={value === option.value}
-                  defaultChecked={defaultValue === option.value}
                   onChange={onChange}
                   className={`${checkboxRadioVariants[variant][state]} ${checkboxRadioSizes[size]} cursor-pointer`}
                   required={required}
@@ -202,7 +199,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               id={id || name}
               name={name}
               checked={checked}
-              defaultChecked={defaultChecked}
               onChange={onChange}
               required={required}
               readOnly={readOnly}
