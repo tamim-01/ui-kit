@@ -1,0 +1,68 @@
+import React from "react";
+
+const variants = {
+  default: "bg-gray-100 text-gray-800",
+  success: "bg-green-100 text-green-800",
+  warning: "bg-yellow-100 text-yellow-800",
+  error: "bg-red-100 text-red-800",
+  info: "bg-primary text-white",
+  outline: "border border-gray-300 text-primary-foreground bg-transparent",
+};
+
+const sizes = {
+  sm: "text-xs px-2 py-0.5",
+  md: "text-sm px-3 py-1",
+  lg: "text-base px-4 py-1.5",
+};
+
+interface BadgeProps {
+  children: React.ReactNode;
+  variant?: keyof typeof variants;
+  size?: keyof typeof sizes;
+  rounded?: boolean;
+  icon?: React.ReactNode;
+  iconPosition?: "start" | "end";
+  onDismiss?: () => void;
+  className?: string;
+}
+
+const Badge = ({
+  children,
+  variant = "default",
+  size = "md",
+  rounded = true,
+  icon,
+  iconPosition = "start",
+  onDismiss,
+  className = "",
+}: BadgeProps) => {
+  return (
+    <span
+      role="status"
+      className={`inline-flex items-center gap-1 whitespace-nowrap ${
+        variants[variant]
+      } ${sizes[size]} ${rounded ? "rounded-full" : "rounded-md"} ${className}`}
+    >
+      {icon && iconPosition === "start" && (
+        <span className="inline-flex">{icon}</span>
+      )}
+      <span>{children}</span>
+      {icon && iconPosition === "end" && (
+        <span className="inline-flex">{icon}</span>
+      )}
+
+      {onDismiss && (
+        <button
+          type="button"
+          onClick={onDismiss}
+          className="ml-1 text-inherit hover:opacity-70 focus:outline-none"
+          aria-label="Dismiss badge"
+        >
+          &times;
+        </button>
+      )}
+    </span>
+  );
+};
+
+export default Badge;
