@@ -12,17 +12,6 @@ interface TextareaProps {
   className?: string;
   fullWidth?: boolean;
 }
-const variants = {
-  default:
-    " border-2 border-primary rounded-lg bg-background text-gray-900 placeholder:text-gray-400 hover:bg-secondary  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-  underlined:
-    "border-b-2  border-primary rounded-none bg-background text-gray-900 placeholder:text-gray-400 hover:bg-secondary  focus-visible:outline-none focus-visible:ring-0",
-};
-const sizes = {
-  sm: "text-sm px-3 py-1.5",
-  md: "text-base px-4 py-2",
-  lg: "text-lg px-5 py-3",
-};
 interface ControlledProps extends TextareaProps {
   value?: string | number | readonly string[];
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -34,6 +23,17 @@ interface UncontrolledProps extends TextareaProps {
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   value?: never;
 }
+const variants = {
+  default:
+    " border-2 border-primary rounded-lg bg-background text-gray-900 placeholder:text-gray-400 hover:bg-secondary  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+  underlined:
+    "border-b-2  border-primary rounded-none bg-background text-gray-900 placeholder:text-gray-400 hover:bg-secondary  focus-visible:outline-none focus-visible:ring-0",
+};
+const sizes = {
+  sm: "text-sm px-3 py-1.5",
+  md: "text-base px-4 py-2",
+  lg: "text-lg px-5 py-3",
+};
 const resizeVariants = {
   none: "resize-none",
   both: "resize",
@@ -77,7 +77,9 @@ const Textarea = ({
         {...textareaProps}
         {...{ rows, cols, placeholder, disabled }}
         className={`  transition-all  ${sizes[size]}  ${
-          disabled ? "bg-gray-200 cursor-not-allowed" : variants[variant]
+          disabled
+            ? "bg-muted text-muted-foreground placeholder:text-muted-foreground cursor-not-allowed"
+            : variants[variant]
         }  ${resizeVariants[resize]} ${className}`}
       />
     </div>
