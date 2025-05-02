@@ -7,12 +7,16 @@ import TextInput from "@/components/Input/TextInput";
 import RangeInput from "@/components/Input/RangeInput";
 import FileInput from "@/components/Input/FileInput";
 import Textarea from "@/components/Input/Textarea";
+import Switch from "@/components/Input/Switch";
+import Select from "@/components/Input/Select";
 
 const InputExamples = () => {
   const [textValue, setTextValue] = useState("John Doe");
   const [emailValue, setEmailValue] = useState("john.doe@example.com");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [notifications, setNotifications] = useState(true);
 
   const [gender, setGender] = useState("female");
   const [plan, setPlan] = useState("pro");
@@ -249,6 +253,69 @@ const InputExamples = () => {
             variant="default"
             size="sm"
             resize="horizontal"
+            fullWidth
+          />
+        </div>
+      </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-bold text-primary">
+          Switch (Toggle) Inputs
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Switch
+            label="Enable Dark Mode"
+            checked={darkMode}
+            onChange={(e) => setDarkMode(e.target.checked)}
+            variant="default"
+            size="md"
+          />
+
+          <Switch
+            label="Allow Notifications"
+            checked={notifications}
+            onChange={(e) => setNotifications(e.target.checked)}
+            variant="ghost"
+            size="md"
+          />
+
+          <Switch
+            label="Auto Updates"
+            checked={false}
+            disabled
+            variant="default"
+            size="sm"
+          />
+        </div>
+      </section>
+      <section className="space-y-6">
+        <h2 className="text-xl font-bold text-primary">Custom Select Inputs</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Select
+            label="Favorite Fruit"
+            options={[
+              { label: "Apple", value: "apple" },
+              { label: "Banana", value: "banana" },
+              { label: "Mango", value: "mango" },
+              { label: "Strawberry", value: "strawberry" },
+            ]}
+            placeholder="Choose a fruit"
+            variant="default"
+            fullWidth
+          />
+
+          <Select
+            label="Skills"
+            multiple
+            options={[
+              { label: "HTML", value: "html" },
+              { label: "CSS", value: "css" },
+              { label: "JavaScript", value: "javascript" },
+              { label: "React", value: "react" },
+              { label: "TypeScript", value: "typescript" },
+            ]}
+            placeholder="Select your skills"
+            description="You can select multiple skills."
+            variant="default"
             fullWidth
           />
         </div>
