@@ -27,6 +27,7 @@ interface ButtonProps {
   children: React.ReactNode;
   size?: keyof typeof sizes;
   type?: "submit" | "button";
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -36,6 +37,7 @@ const Button = ({
   loading,
   className,
   onClick,
+  disabled,
   size = "md",
 }: ButtonProps) => {
   return (
@@ -43,7 +45,9 @@ const Button = ({
       type={type}
       disabled={variant === "disabled" || loading}
       onClick={onClick}
-      className={` flex justify-center items-center transition-all gap-2  border-[2px] rounded-lg ${variants[variant]} ${sizes[size]} ${className}`}
+      className={` flex justify-center items-center transition-all gap-2  border-[2px] rounded-lg ${
+        disabled ? variants["disabled"] : variants[variant]
+      } ${sizes[size]} ${className}`}
     >
       {loading ? <LoadingSpinner /> : children}
     </button>
