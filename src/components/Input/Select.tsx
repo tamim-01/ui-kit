@@ -176,30 +176,22 @@ const Select = ({
       )}
 
       <div
-        role="button"
         tabIndex={0}
         className={triggerStyles}
         onClick={() => !disabled && setIsOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
-        aria-haspopup="listbox"
-        aria-expanded={isOpen}
       >
         {renderSelected()}
       </div>
 
       {isOpen && (
-        <ul
-          className="absolute z-50 mt-1 w-full bg-secondary border border-input rounded shadow-md max-h-60 overflow-auto"
-          role="listbox"
-        >
+        <ul className="absolute z-50 mt-1 w-full bg-secondary border border-input rounded shadow-md max-h-60 overflow-auto">
           {options.length > 0 ? (
             options.map((option, i) => {
               const selected = isSelected(option.value);
               return (
                 <li
                   key={option.value}
-                  role="option"
-                  aria-selected={selected}
                   className={optionStyles(i === focusedIndex, selected)}
                   onClick={() => handleSelect(option.value)}
                   onMouseEnter={() => setFocusedIndex(i)}

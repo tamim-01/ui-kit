@@ -76,7 +76,6 @@ const Switch = ({
           onChange={onChange}
           disabled={disabled}
           className="peer sr-only"
-          role="switch"
         />
         <div className={trackClasses}>
           <div className={thumbClasses} />
