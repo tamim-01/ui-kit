@@ -1,4 +1,5 @@
 import Button from "@/components/Button/Button";
+import Accordion from "@/components/DataDisplay/Accordion";
 import Badge from "@/components/DataDisplay/Badge";
 import {
   Card,
@@ -6,10 +7,11 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/DataDisplay/Card";
+import Tabs from "@/components/DataDisplay/Tab";
 import ThemeProvider from "@/components/ThemeProvider";
 import Image from "next/image";
 
-const page = () => {
+const DisplayExamples = () => {
   return (
     <>
       <div className="max-w-4xl mx-auto p-6 space-y-12 ">
@@ -133,8 +135,124 @@ const page = () => {
             </Card>
           </div>
         </section>
+        <section className="space-y-6">
+          <h2 className="text-xl font-bold text-primary">Tabs Component</h2>
+          <Tabs defaultValue="account" direction="vertical">
+            <Tabs.List>
+              <Tabs.Trigger value="account">Account</Tabs.Trigger>
+              <Tabs.Trigger value="notifications">Notifications</Tabs.Trigger>
+              <Tabs.Trigger value="billing">Billing</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="account">
+              <p className="text-muted-foreground">
+                Update your personal account settings here.
+              </p>
+            </Tabs.Content>
+            <Tabs.Content value="notifications">
+              <p className="text-muted-foreground">
+                Manage your notification preferences and alerts.
+              </p>
+            </Tabs.Content>
+            <Tabs.Content value="billing">
+              <p className="text-muted-foreground">
+                View and manage billing history and subscriptions.
+              </p>
+            </Tabs.Content>
+          </Tabs>
+        </section>
+        <section className="space-y-6">
+          <h2 className="text-xl font-bold text-primary">Tabs Component</h2>
+          <Tabs defaultValue="account" direction="horizontal" variant="pill">
+            <Tabs.List>
+              <Tabs.Trigger value="account">Account</Tabs.Trigger>
+              <Tabs.Trigger value="notifications">Notifications</Tabs.Trigger>
+              <Tabs.Trigger value="billing">Billing</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="account">
+              <p className="text-muted-foreground">
+                Update your personal account settings here.
+              </p>
+            </Tabs.Content>
+            <Tabs.Content value="notifications">
+              <p className="text-muted-foreground">
+                Manage your notification preferences and alerts.
+              </p>
+            </Tabs.Content>
+            <Tabs.Content value="billing">
+              <p className="text-muted-foreground">
+                View and manage billing history and subscriptions.
+              </p>
+            </Tabs.Content>
+          </Tabs>
+        </section>
+        <section className="space-y-6">
+          <h2 className="text-xl font-bold text-primary">Tabs Component</h2>
+          <Tabs
+            defaultValue="account"
+            direction="horizontal"
+            variant="underline"
+          >
+            <Tabs.List>
+              <Tabs.Trigger value="account">Account</Tabs.Trigger>
+              <Tabs.Trigger value="notifications">Notifications</Tabs.Trigger>
+              <Tabs.Trigger value="billing">Billing</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="account">
+              <p className="text-muted-foreground">
+                Update your personal account settings here.
+              </p>
+            </Tabs.Content>
+            <Tabs.Content value="notifications">
+              <p className="text-muted-foreground">
+                Manage your notification preferences and alerts.
+              </p>
+            </Tabs.Content>
+            <Tabs.Content value="billing">
+              <p className="text-muted-foreground">
+                View and manage billing history and subscriptions.
+              </p>
+            </Tabs.Content>
+          </Tabs>
+        </section>
+        <section className="space-y-6">
+          <h2 className="text-2xl font-bold text-primary">
+            Accordion Component
+          </h2>
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Default Variant</h3>
+            <Accordion title="What is your return policy?" variant="default">
+              <p>
+                We offer a 30-day return policy. Items must be unused and in
+                original packaging. We offer a 30-day return policy. Items must
+                be unused and in original packaging. We offer a 30-day return
+                policy. Items must be unused and in original packaging.
+              </p>
+            </Accordion>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Outlined Variant</h3>
+            <Accordion title="How long does shipping take?" variant="outlined">
+              <p>Orders typically ship within 3–5 business days.</p>
+            </Accordion>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Ghost Variant</h3>
+            <Accordion
+              title="Do you offer international delivery?"
+              variant="ghost"
+            >
+              <p>
+                Yes! We deliver to over 50 countries with variable shipping
+                times.
+              </p>
+            </Accordion>
+          </div>
+        </section>
       </div>
     </>
   );
 };
-export default page;
+export default DisplayExamples;

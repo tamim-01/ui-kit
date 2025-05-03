@@ -38,7 +38,6 @@ const Badge = ({
 }: BadgeProps) => {
   return (
     <span
-      role="status"
       className={`inline-flex items-center gap-1 whitespace-nowrap ${
         variants[variant]
       } ${sizes[size]} ${rounded ? "rounded-full" : "rounded-md"} ${className}`}
@@ -56,7 +55,6 @@ const Badge = ({
           type="button"
           onClick={onDismiss}
           className="ml-1 text-inherit hover:opacity-70 focus:outline-none"
-          aria-label="Dismiss badge"
         >
           &times;
         </button>
