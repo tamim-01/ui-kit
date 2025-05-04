@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect, ReactNode } from "react";
-import Image from "next/image";
 
 interface AccordionProps {
   title: string;
@@ -46,18 +45,25 @@ const Accordion = ({
       >
         <span>{title}</span>
         <span
-          className={`transition-transform duration-300 ${
-            open ? "rotate-180" : "rotate-0"
+          className={`transition-transform duration-300 text-primary ${
+            open ? "rotate-270" : "rotate-90"
           }`}
         >
           {icon || (
-            <Image
-              src="/icons/arrow.svg"
-              alt="arrow"
-              width={16}
-              height={16}
-              className="inline-block"
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 25 25"
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           )}
         </span>
       </button>
