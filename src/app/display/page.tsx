@@ -8,12 +8,13 @@ import {
   CardHeader,
 } from "@/components/DataDisplay/Card";
 import Tabs from "@/components/DataDisplay/Tab";
+import Container from "@/components/Layout/Container";
 import Image from "next/image";
 
 const DisplayExamples = () => {
   return (
     <>
-      <div className="max-w-4xl mx-auto p-6 space-y-12 ">
+      <Container maxWidth="4xl" padding="lg" className="space-y-12 mt-12">
         <section className="space-y-6">
           <h2 className="text-2xl font-bold text-primary">Badge Component</h2>
 
@@ -249,7 +250,7 @@ const DisplayExamples = () => {
             </Accordion>
           </div>
         </section>
-      </div>
+      </Container>
     </>
   );
 };

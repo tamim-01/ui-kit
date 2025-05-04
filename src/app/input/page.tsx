@@ -8,6 +8,7 @@ import FileInput from "@/components/Input/FileInput";
 import Textarea from "@/components/Input/Textarea";
 import Switch from "@/components/Input/Switch";
 import Select from "@/components/Input/Select";
+import Container from "@/components/Layout/Container";
 
 const InputExamples = () => {
   const [textValue, setTextValue] = useState("John Doe");
@@ -16,16 +17,13 @@ const InputExamples = () => {
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [notifications, setNotifications] = useState(true);
-
   const [gender, setGender] = useState("female");
   const [plan, setPlan] = useState("pro");
-
   const [birthdate, setBirthdate] = useState("1990-01-15");
-
   const [satisfaction, setSatisfaction] = useState(8);
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-12 ">
+    <Container maxWidth="4xl" padding="lg" className="space-y-12 mt-12">
       <h1 className="text-3xl font-bold text-primary mb-8">
         Input Component Examples
       </h1>
@@ -211,7 +209,7 @@ const InputExamples = () => {
           />
 
           <TextInput
-            label=" Appointment Time"
+            label="Appointment Time"
             type="time"
             variant="default"
             inputSize="md"
@@ -219,6 +217,7 @@ const InputExamples = () => {
           />
         </div>
       </section>
+
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-primary">
           Multiline Textarea Input
@@ -255,6 +254,7 @@ const InputExamples = () => {
           />
         </div>
       </section>
+
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-primary">
           Switch (Toggle) Inputs
@@ -285,6 +285,7 @@ const InputExamples = () => {
           />
         </div>
       </section>
+
       <section className="space-y-6">
         <h2 className="text-xl font-bold text-primary">Custom Select Inputs</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -318,7 +319,7 @@ const InputExamples = () => {
           />
         </div>
       </section>
-    </div>
+    </Container>
   );
 };
 

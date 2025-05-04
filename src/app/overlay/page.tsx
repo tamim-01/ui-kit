@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/Button/Button";
+import Container from "@/components/Layout/Container";
 import Drawer from "@/components/Overlay/Drawer";
 import Modal from "@/components/Overlay/Modal";
 import Popover from "@/components/Overlay/Popover";
@@ -20,7 +21,7 @@ const OverlayExamples = () => {
     "bottom",
   ];
   return (
-    <section className="max-w-3xl mx-auto p-6 space-y-12">
+    <Container maxWidth="4xl" padding="lg" className="space-y-12 mt-12">
       <h2 className="text-2xl font-bold text-primary mb-4">
         Modal Component Examples
       </h2>
@@ -190,7 +191,7 @@ const OverlayExamples = () => {
           </Popover>
         </div>
       </section>
-    </section>
+    </Container>
   );
 };
 export default OverlayExamples;

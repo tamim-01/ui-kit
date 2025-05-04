@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
+import Container from "@/components/Layout/Container";
 
 const ButtonExamples = () => {
   const [isLoading, setIsLoading] = useState({
@@ -19,7 +20,7 @@ const ButtonExamples = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-12">
+    <Container maxWidth="4xl" padding="lg" className="space-y-12 mt-12">
       <h1 className="text-3xl font-bold text-primary">
         Button Component Examples
       </h1>
@@ -27,7 +28,7 @@ const ButtonExamples = () => {
         <h2 className="text-xl font-bold text-primary">Button Variants</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="flex flex-col gap-4">
-            <div className="p-4  rounded-lg border  border-muted shadow-lg">
+            <div className="p-4 rounded-lg border border-muted shadow-lg">
               <h3 className="text-lg font-medium text-primary mb-3">
                 Primary Button
               </h3>
@@ -43,7 +44,7 @@ const ButtonExamples = () => {
               </Button>
             </div>
 
-            <div className="p-4  rounded-lg border  border-muted shadow-lg">
+            <div className="p-4 rounded-lg border border-muted shadow-lg">
               <h3 className="text-lg font-medium text-primary mb-3">
                 Secondary Button
               </h3>
@@ -61,7 +62,7 @@ const ButtonExamples = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <div className="p-4  rounded-lg border  border-muted shadow-lg">
+            <div className="p-4 rounded-lg border border-muted shadow-lg">
               <h3 className="text-lg font-medium text-primary mb-3">
                 Ghost Button
               </h3>
@@ -77,7 +78,7 @@ const ButtonExamples = () => {
               </Button>
             </div>
 
-            <div className="p-4  rounded-lg border  border-muted shadow-lg">
+            <div className="p-4 rounded-lg border border-muted shadow-lg">
               <h3 className="text-lg font-medium text-primary mb-3">
                 Destructive Button
               </h3>
@@ -96,7 +97,7 @@ const ButtonExamples = () => {
           </div>
         </div>
 
-        <div className="p-4  rounded-lg border  border-muted shadow-lg">
+        <div className="p-4 rounded-lg border border-muted shadow-lg">
           <h3 className="text-lg font-medium text-primary mb-3">
             Disabled Button
           </h3>
@@ -108,7 +109,7 @@ const ButtonExamples = () => {
       </section>
       <section className="space-y-6">
         <h2 className="text-xl font-bold text-primary">Button Sizes</h2>
-        <div className="flex flex-wrap gap-4 items-center p-4  rounded-lg border  border-muted shadow-lg">
+        <div className="flex flex-wrap gap-4 items-center p-4 rounded-lg border border-muted shadow-lg">
           <Button variant="primary" size="sm">
             Small Button
           </Button>
@@ -122,7 +123,7 @@ const ButtonExamples = () => {
           </Button>
         </div>
 
-        <div className="flex flex-wrap gap-4 items-center p-4  rounded-lg border  border-muted shadow-lg">
+        <div className="flex flex-wrap gap-4 items-center p-4 rounded-lg border border-muted shadow-lg">
           <Button variant="secondary" size="sm">
             Small Button
           </Button>
@@ -135,7 +136,7 @@ const ButtonExamples = () => {
             Large Button
           </Button>
         </div>
-        <div className="flex flex-wrap gap-4 items-center p-4  rounded-lg border  border-muted shadow-lg">
+        <div className="flex flex-wrap gap-4 items-center p-4 rounded-lg border border-muted shadow-lg">
           <Button variant="destructive" size="sm">
             Small Button
           </Button>
@@ -148,7 +149,7 @@ const ButtonExamples = () => {
             Large Button
           </Button>
         </div>
-        <div className="flex flex-wrap gap-4 items-center p-4  rounded-lg border  border-muted shadow-lg">
+        <div className="flex flex-wrap gap-4 items-center p-4 rounded-lg border border-muted shadow-lg">
           <Button variant="ghost" size="sm">
             Small Button
           </Button>
@@ -165,7 +166,7 @@ const ButtonExamples = () => {
       <section className="space-y-6">
         <h2 className="text-xl font-bold text-primary">Buttons with Icons</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-4  rounded-lg border  border-muted shadow-lg">
+          <div className="p-4 rounded-lg border border-muted shadow-lg">
             <h3 className="text-lg font-medium text-primary mb-3">
               Leading Icon
             </h3>
@@ -186,7 +187,7 @@ const ButtonExamples = () => {
             </Button>
           </div>
 
-          <div className="p-4  rounded-lg border  border-muted shadow-lg">
+          <div className="p-4 rounded-lg border border-muted shadow-lg">
             <h3 className="text-lg font-medium text-primary mb-3">
               Trailing Icon
             </h3>
@@ -207,7 +208,7 @@ const ButtonExamples = () => {
             </Button>
           </div>
 
-          <div className="p-4  rounded-lg border  border-muted shadow-lg">
+          <div className="p-4 rounded-lg border border-muted shadow-lg">
             <h3 className="text-lg font-medium text-primary mb-3">Icon Only</h3>
             <div className="flex gap-4">
               <Button variant="primary" className="w-10 h-10 p-0 rounded-full">
@@ -246,7 +247,7 @@ const ButtonExamples = () => {
           </div>
         </div>
       </section>
-    </div>
+    </Container>
   );
 };
 

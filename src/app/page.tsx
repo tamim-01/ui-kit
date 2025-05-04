@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/Button/Button";
+import Container from "@/components/Layout/Container";
 import Link from "next/link";
 
 const categories = [
@@ -38,7 +39,7 @@ const categories = [
 
 export default function HomePage() {
   return (
-    <main className="p-8 space-y-10 max-w-4xl mx-auto">
+    <Container maxWidth="4xl" padding="lg" className="space-y-12 mt-12">
       <h1 className="text-3xl font-bold mt-5">UI Kit Components</h1>
       <p className="text-muted-foreground text-lg">
         A collection of reusable components built with accessibility,
@@ -66,6 +67,6 @@ export default function HomePage() {
           </div>
         ))}
       </div>
-    </main>
+    </Container>
   );
 }
