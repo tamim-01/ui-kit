@@ -1,9 +1,39 @@
-const LoadingSpinner = () => {
+import { FC } from "react";
+
+interface LoadingSpinnerProps {
+  size?: "sm" | "md" | "lg" | number;
+  variant?: "primary" | "secondary" | "muted";
+  className?: string;
+  ariaLabel?: string;
+}
+
+const sizeMap = {
+  sm: "w-4 h-4",
+  md: "w-6 h-6",
+  lg: "w-8 h-8",
+};
+
+const variantMap = {
+  primary: "text-gray-200 fill-primary",
+  secondary: "text-gray-200 fill-secondary",
+  muted: "text-white fill-muted",
+};
+
+const LoadingSpinner: FC<LoadingSpinnerProps> = ({
+  size = "md",
+  variant = "primary",
+  className = "",
+}) => {
+  const sizeClass =
+    typeof size === "number"
+      ? `w-[${size}px] h-[${size}px]`
+      : sizeMap[size] || sizeMap.md;
+
   return (
     <>
       <svg
         aria-hidden="true"
-        className="w-6 h-6 text-gray-200 animate-spin  fill-primary"
+        className={`${sizeClass} ${variantMap[variant]} ${className}  animate-spin `}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -21,4 +51,5 @@ const LoadingSpinner = () => {
     </>
   );
 };
+
 export default LoadingSpinner;
