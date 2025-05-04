@@ -23,7 +23,7 @@ const sizeClasses = {
 };
 
 const variantClasses = {
-  default: "bg-secondary text-primary-foreground",
+  default: "bg-background text-primary-foreground",
   danger: "bg-red-50 text-red-900",
   ghost: "bg-transparent shadow-none",
 };
