@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider from "@/components/utils/ThemeProvider";
 
 const ButtonExamples = () => {
   const [isLoading, setIsLoading] = useState({

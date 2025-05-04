@@ -1,4 +1,4 @@
-import { useToastContext } from "./ToastProvider";
+import { useToastContext } from "../Overlay/Toast/ToastProvider";
 
 export const useToast = () => {
   const { addToast } = useToastContext();

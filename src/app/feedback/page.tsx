@@ -2,8 +2,8 @@
 
 import Button from "@/components/Button/Button";
 import Alert from "@/components/FeedBack/Alert";
-import { useToast } from "@/components/Overlay/Toast/useToast";
-import ThemeProvider from "@/components/ThemeProvider";
+import { useToast } from "@/components/utils/useToast";
+import ThemeProvider from "@/components/utils/ThemeProvider";
 
 const FeedbackExamples = () => {
   const { toast } = useToast();

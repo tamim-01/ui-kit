@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider from "@/components/utils/ThemeProvider";
 import RadioGroup from "@/components/Input/RadioGroup";
 import Checkbox from "@/components/Input/Checkbox";
 import TextInput from "@/components/Input/TextInput";

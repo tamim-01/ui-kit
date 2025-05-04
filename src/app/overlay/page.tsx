@@ -4,7 +4,7 @@ import Drawer from "@/components/Overlay/Drawer";
 import Modal from "@/components/Overlay/Modal";
 import Popover from "@/components/Overlay/Popover";
 import Tooltip from "@/components/Overlay/Tooltip";
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider from "@/components/utils/ThemeProvider";
 import { useState } from "react";
 
 const OverlayExamples = () => {

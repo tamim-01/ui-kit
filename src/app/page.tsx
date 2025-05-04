@@ -2,7 +2,7 @@
 import Button from "@/components/Button/Button";
 import TextInput from "@/components/Input/TextInput";
 import Textarea from "@/components/Input/Textarea";
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider from "@/components/utils/ThemeProvider";
 import { useEffect, useState } from "react";
 
 export default function Home() {

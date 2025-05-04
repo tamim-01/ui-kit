@@ -8,7 +8,7 @@ import {
   CardHeader,
 } from "@/components/DataDisplay/Card";
 import Tabs from "@/components/DataDisplay/Tab";
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider from "@/components/utils/ThemeProvider";
 import Image from "next/image";
 
 const DisplayExamples = () => {
