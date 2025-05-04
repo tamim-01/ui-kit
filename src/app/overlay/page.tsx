@@ -25,7 +25,6 @@ const OverlayExamples = () => {
       <h2 className="text-2xl font-bold text-primary mb-4">
         Modal Component Examples
       </h2>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="border p-4 rounded-md shadow-sm">
           <h3 className="text-lg font-semibold mb-2">Default Modal</h3>
@@ -55,7 +54,6 @@ const OverlayExamples = () => {
           </Button>
         </div>
       </div>
-
       <Modal
         open={openModal === "default"}
         onClose={() => setOpenModal(null)}
@@ -71,7 +69,6 @@ const OverlayExamples = () => {
       >
         <p>This is a standard modal with a header, body, and footer.</p>
       </Modal>
-
       <Modal
         open={openModal === "danger"}
         onClose={() => setOpenModal(null)}
@@ -91,7 +88,6 @@ const OverlayExamples = () => {
           irreversible.
         </p>
       </Modal>
-
       <Modal
         open={openModal === "full"}
         onClose={() => setOpenModal(null)}
@@ -107,6 +103,43 @@ const OverlayExamples = () => {
           </p>
         </div>
       </Modal>
+      <section className="space-y-8 p-4">
+        <h2 className="text-xl font-semibold">Popover Examples</h2>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 place-items-center">
+          <Popover
+            trigger="click"
+            position="top"
+            content={<span>This is a top popover</span>}
+          >
+            <Button>Top - click</Button>
+          </Popover>
+
+          <Popover
+            trigger="click"
+            position="right"
+            content={<span>This is a right popover</span>}
+          >
+            <Button>Right - click</Button>
+          </Popover>
+
+          <Popover
+            trigger="hover"
+            position="bottom"
+            content={<span>This is a bottom popover</span>}
+          >
+            <Button>Bottom - hover</Button>
+          </Popover>
+
+          <Popover
+            trigger="hover"
+            position="left"
+            content={<span>This is a left popover</span>}
+          >
+            <Button>Left - hover</Button>
+          </Popover>
+        </div>
+      </section>
       <section className="space-y-4 p-4">
         <h2 className="text-xl font-semibold">Drawer Positions</h2>
 
@@ -152,43 +185,6 @@ const OverlayExamples = () => {
           <Tooltip content=" on left" position="left">
             <Button variant="secondary">Left</Button>
           </Tooltip>
-        </div>
-      </section>
-      <section className="space-y-8">
-        <h2 className="text-xl font-semibold">Popover Examples</h2>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 place-items-center">
-          <Popover
-            trigger="click"
-            position="top"
-            content={<span>This is a top popover</span>}
-          >
-            <Button>Top - click</Button>
-          </Popover>
-
-          <Popover
-            trigger="click"
-            position="right"
-            content={<span>This is a right popover</span>}
-          >
-            <Button>Right - click</Button>
-          </Popover>
-
-          <Popover
-            trigger="hover"
-            position="bottom"
-            content={<span>This is a bottom popover</span>}
-          >
-            <Button>Bottom - hover</Button>
-          </Popover>
-
-          <Popover
-            trigger="hover"
-            position="left"
-            content={<span>This is a left popover</span>}
-          >
-            <Button>Left - hover</Button>
-          </Popover>
         </div>
       </section>
     </Container>

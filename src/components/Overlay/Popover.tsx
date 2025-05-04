@@ -83,7 +83,7 @@ const Popover = ({
 
       {open && (
         <div
-          className={`absolute z-50 min-w-[150px] rounded-md border bg-white shadow-md p-3 transform ${getPositionClasses(
+          className={`absolute z-50 min-w-[150px] rounded-md border bg-secondary shadow-md p-3 transform ${getPositionClasses(
             position
           )} ${className}`}
         >
