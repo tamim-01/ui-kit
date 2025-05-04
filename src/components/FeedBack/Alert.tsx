@@ -19,10 +19,68 @@ const variantClasses = {
 };
 
 const defaultIcons: Record<NonNullable<AlertProps["variant"]>, ReactNode> = {
-  info: <span>ℹ️</span>,
-  success: <span>✅</span>,
-  error: <span>❌</span>,
-  warning: <span>⚠️</span>,
+  info: (
+    <svg
+      className="w-5 h-5 text-blue-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M13 16h-1v-4h-1m1-4h.01"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 20.5C6.753 20.5 2.5 16.247 2.5 11S6.753 1.5 12 1.5 21.5 5.753 21.5 11 17.247 20.5 12 20.5Z"
+      />
+    </svg>
+  ),
+  success: (
+    <svg
+      className="w-5 h-5 text-green-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  ),
+  error: (
+    <svg
+      className="w-5 h-5 text-red-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  ),
+  warning: (
+    <svg
+      className="w-5 h-5 text-yellow-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M10.29 3.86L1.82 18a1.25 1.25 0 001.08 1.88h18.2a1.25 1.25 0 001.08-1.88L13.71 3.86a1.25 1.25 0 00-2.42 0z"
+      />
+    </svg>
+  ),
 };
 
 const Alert = ({
