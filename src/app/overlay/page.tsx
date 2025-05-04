@@ -4,7 +4,6 @@ import Drawer from "@/components/Overlay/Drawer";
 import Modal from "@/components/Overlay/Modal";
 import Popover from "@/components/Overlay/Popover";
 import Tooltip from "@/components/Overlay/Tooltip";
-import ThemeProvider from "@/components/utils/ThemeProvider";
 import { useState } from "react";
 
 const OverlayExamples = () => {
@@ -22,7 +21,6 @@ const OverlayExamples = () => {
   ];
   return (
     <section className="max-w-3xl mx-auto p-6 space-y-12">
-      <ThemeProvider />
       <h2 className="text-2xl font-bold text-primary mb-4">
         Modal Component Examples
       </h2>

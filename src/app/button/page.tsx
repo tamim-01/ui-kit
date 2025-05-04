@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
-import ThemeProvider from "@/components/utils/ThemeProvider";
 
 const ButtonExamples = () => {
   const [isLoading, setIsLoading] = useState({
@@ -21,7 +20,6 @@ const ButtonExamples = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-12">
-      <ThemeProvider />
       <h1 className="text-3xl font-bold text-primary">
         Button Component Examples
       </h1>

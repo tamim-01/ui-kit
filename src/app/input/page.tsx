@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import ThemeProvider from "@/components/utils/ThemeProvider";
 import RadioGroup from "@/components/Input/RadioGroup";
 import Checkbox from "@/components/Input/Checkbox";
 import TextInput from "@/components/Input/TextInput";
@@ -27,7 +26,6 @@ const InputExamples = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-12 ">
-      <ThemeProvider />
       <h1 className="text-3xl font-bold text-primary mb-8">
         Input Component Examples
       </h1>

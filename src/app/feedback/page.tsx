@@ -3,7 +3,6 @@
 import Button from "@/components/Button/Button";
 import Alert from "@/components/FeedBack/Alert";
 import { useToast } from "@/components/utils/useToast";
-import ThemeProvider from "@/components/utils/ThemeProvider";
 
 const FeedbackExamples = () => {
   const { toast } = useToast();
@@ -17,7 +16,6 @@ const FeedbackExamples = () => {
   const variants = ["success", "error", "info", "warning"] as const;
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-12 ">
-      <ThemeProvider />
       <section className="space-y-4 p-6">
         <h2 className="text-lg font-semibold mb-2">Alert Examples</h2>
 

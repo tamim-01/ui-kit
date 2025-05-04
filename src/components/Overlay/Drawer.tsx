@@ -81,7 +81,7 @@ const Drawer = ({
     : sizeMap[size].replace(/h-\S+/g, "");
 
   return (
-    <div className="fixed inset-0 z-50">
+    <div className="fixed inset-0 z-10 ">
       <div
         className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
           isVisible ? "opacity-100" : "opacity-0"
@@ -90,7 +90,7 @@ const Drawer = ({
       />
 
       <div
-        className={`absolute bg-white shadow-lg transform transition-transform duration-300   ${
+        className={`absolute bg-background shadow-lg transform transition-transform duration-300 overflow-y-auto    ${
           positionStyles.base
         }
        ${isVisible ? positionStyles.enter : positionStyles.exit}

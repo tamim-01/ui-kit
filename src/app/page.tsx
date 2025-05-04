@@ -1,102 +1,71 @@
 "use client";
-import Button from "@/components/Button/Button";
-import TextInput from "@/components/Input/TextInput";
-import Textarea from "@/components/Input/Textarea";
-import ThemeProvider from "@/components/utils/ThemeProvider";
-import { useEffect, useState } from "react";
 
-export default function Home() {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-    return () => clearTimeout(timeout);
-  });
+import Button from "@/components/Button/Button";
+import Link from "next/link";
+
+const categories = [
+  {
+    name: "Overlay Components",
+    description:
+      "Includes Modal, Drawer, Tooltip, and Popover components with accessibility and animation.",
+    href: "/overlay",
+  },
+  {
+    name: "Input Components",
+    description:
+      "Reusable Input, Textarea, Select, Switch, and Checkbox components with validation and variants.",
+    href: "/input",
+  },
+  {
+    name: "Feedback Components",
+    description:
+      "Toast, Alert, Spinner, and Skeleton for UI feedback and loading states.",
+    href: "/feedback",
+  },
+  {
+    name: "Button Variants",
+    description:
+      "Different styles, sizes, loading states, and icon support for buttons.",
+    href: "/button",
+  },
+  {
+    name: "Display Components",
+    description:
+      "Includes Tabs and Accordion for organizing and toggling content visually.",
+    href: "/display",
+  },
+];
+
+export default function HomePage() {
   return (
-    <main className="flex flex-col justify-center items-center h-full gap-14">
-      <ThemeProvider />
-      <section className="flex flex-col space-y-5 w-full container mx-64 items-center  ">
-        <h1 className="text-2xl text-primary ">Button variants</h1>
-        <div className="flex flex-row flex-wrap gap-3.5 ">
-          <Button>Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="disabled">Disabled</Button>
-          <Button variant="ghost">Ghost</Button>
-          <Button variant="destructive">Destructive</Button>
-          <Button
-            onClick={() => setLoading(true)}
-            variant="secondary"
-            loading={loading}
-            className="w-32"
+    <main className="p-8 space-y-10 max-w-4xl mx-auto">
+      <h1 className="text-3xl font-bold mt-5">UI Kit Components</h1>
+      <p className="text-muted-foreground text-lg">
+        A collection of reusable components built with accessibility,
+        customization, and clean design in mind.
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {categories.map((category) => (
+          <div
+            key={category.name}
+            className="rounded-lg border p-6 shadow-sm flex flex-col justify-between"
           >
-            Loading
-          </Button>
-        </div>
-      </section>
-      <section className="flex flex-col space-y-5 w-full container mx-64 items-center">
-        <h1 className="text-2xl text-primary "> Input variants</h1>
-        <div className="flex flex-row gap-6 items-center">
-          <div className="flex flex-col gap-4 items-center justify-center ">
-            <TextInput label="Default" placeholder="write here..." />
-            <TextInput label="Disabled" placeholder="write here..." disabled />
-            <TextInput label="Error" placeholder="write here..." error />
+            <div>
+              <h2 className="text-xl font-semibold">{category.name}</h2>
+              <p className="text-sm text-muted-foreground mt-2">
+                {category.description}
+              </p>
+            </div>
+
+            <div className="mt-4">
+              <Link href={category.href}>
+                <Button>View Examples</Button>
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-col gap-4 items-center justify-center ">
-            <TextInput
-              label="Underlined"
-              variant="underlined"
-              placeholder="write here..."
-            />
-            <TextInput
-              label="Disabled"
-              variant="underlined"
-              placeholder="write here..."
-              disabled
-            />
-            <TextInput
-              label="Error"
-              variant="underlined"
-              placeholder="write here..."
-              error
-            />
-          </div>
-          <div className="flex flex-col gap-4 items-center justify-center ">
-            <TextInput
-              label="Ghost"
-              variant="ghost"
-              placeholder="write here..."
-            />
-            <TextInput
-              label="Disabled"
-              variant="ghost"
-              placeholder="write here..."
-              disabled
-            />
-            <TextInput
-              label="Error"
-              variant="ghost"
-              placeholder="write here..."
-              error
-            />
-          </div>
-        </div>
-      </section>
-      <section className="flex flex-col space-y-5 w-full container mx-64 items-center mb-8">
-        <h1 className="text-2xl text-primary ">Textarea components</h1>
-        <div className="flex flex-col gap-6 items-start justify-center ">
-          <Textarea
-            label="Default"
-            placeholder="this is a textarea"
-            description="this is a textarea description"
-            resize="none"
-            defaultValue={"this is a textarea with default value"}
-          />
-          <Textarea label="disabled" resize="vertical" disabled />
-          <Textarea label="underlined" resize="both" variant="underlined" />
-          <Textarea label="" resize="both" disabled />
-        </div>
-      </section>
+        ))}
+      </div>
     </main>
   );
 }
