@@ -23,7 +23,6 @@ interface BadgeProps {
   rounded?: boolean;
   icon?: React.ReactNode;
   iconPosition?: "start" | "end";
-  onDismiss?: () => void;
   className?: string;
 }
 
