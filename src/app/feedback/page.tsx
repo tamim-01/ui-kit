@@ -4,7 +4,7 @@ import Button from "@/components/Button/Button";
 import Alert from "@/components/FeedBack/Alert";
 import Skeleton from "@/components/FeedBack/Skeleton";
 import Container from "@/components/Layout/Container";
-import LoadingSpinner from "@/components/LoadingSpinner";
+import LoadingSpinner from "@/components/FeedBack/LoadingSpinner";
 import { useToast } from "@/components/utils/useToast";
 
 const FeedbackExamples = () => {
