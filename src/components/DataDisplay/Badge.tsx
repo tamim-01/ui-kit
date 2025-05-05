@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const variants = {
@@ -33,7 +34,6 @@ const Badge = ({
   rounded = true,
   icon,
   iconPosition = "start",
-  onDismiss,
   className = "",
 }: BadgeProps) => {
   return (
@@ -48,16 +48,6 @@ const Badge = ({
       <span>{children}</span>
       {icon && iconPosition === "end" && (
         <span className="inline-flex">{icon}</span>
-      )}
-
-      {onDismiss && (
-        <button
-          type="button"
-          onClick={onDismiss}
-          className="ml-1 text-inherit hover:opacity-70 focus:outline-none"
-        >
-          &times;
-        </button>
       )}
     </span>
   );
