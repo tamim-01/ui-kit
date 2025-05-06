@@ -273,7 +273,7 @@ const InputExamples = () => {
             checked={notifications}
             onChange={(e) => setNotifications(e.target.checked)}
             variant="ghost"
-            size="md"
+            size="lg"
           />
 
           <Switch

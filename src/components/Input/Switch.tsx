@@ -45,10 +45,10 @@ const Switch = ({
 
   const thumbTranslate =
     size === "sm"
-      ? "translate-x-4"
+      ? "translate-x-3"
       : size === "lg"
-      ? "translate-x-7"
-      : "translate-x-5";
+      ? "translate-x-6.5"
+      : "translate-x-4";
 
   const thumbSize =
     size === "sm" ? "w-4 h-4" : size === "lg" ? "w-6 h-6" : "w-5 h-5";
