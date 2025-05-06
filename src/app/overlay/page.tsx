@@ -94,12 +94,15 @@ const OverlayExamples = () => {
         size="full"
         variant="ghost"
         showCloseButton
+        header={<h2 className="text-2xl font-bold ">Fullscreen Modal</h2>}
       >
         <div className="text-center mt-20">
-          <h2 className="text-2xl font-bold mb-4">Fullscreen Modal</h2>
           <p className="text-primary-foreground">
             This modal takes up the entire screen. Great for focused tasks or
-            onboarding.
+            onboarding. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Laborum, nostrum reiciendis! Natus nihil cupiditate ad, id aliquid
+            reiciendis, delectus adipisci tempore ipsam dolores voluptate,
+            voluptatem dignissimos animi inventore praesentium odit?
           </p>
         </div>
       </Modal>

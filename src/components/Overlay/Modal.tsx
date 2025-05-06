@@ -80,19 +80,27 @@ const Modal = ({
         ref={modalRef}
         tabIndex={-1}
         role="dialog"
-        className={`relative w-full mx-4 rounded-md p-6 shadow-lg transition-all duration-300 animate-slide-up focus:outline-none ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+        className={` w-full mx-4 rounded-md p-6 shadow-lg transition-all duration-300 animate-slide-up focus:outline-none ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
-        {showCloseButton && (
-          <button
-            onClick={onClose}
-            className="absolute right-4 top-4 text-muted-foreground hover:text-foreground"
-          >
-            &times;
-          </button>
+        {header && (
+          <div className="flex mb-4 flex-row justify-between items-center">
+            {size === "full" && <div></div>}
+            <div className=" text-lg font-semibold">{header}</div>
+            {showCloseButton && (
+              <button
+                onClick={onClose}
+                className={`${
+                  variant === "danger"
+                    ? "bg-red-400 hover:bg-red-500"
+                    : "bg-secondary "
+                } px-[6px] pt-0.5 text-center  hover:bg-primary rounded-full  text-background  text-sm `}
+              >
+                X
+              </button>
+            )}
+          </div>
         )}
-
-        {header && <div className="mb-4 text-lg font-semibold">{header}</div>}
 
         <div className="mb-4">{children}</div>
 
