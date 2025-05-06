@@ -68,6 +68,23 @@ const Popover = ({
   const handleClick = () => {
     if (trigger === "click") setOpen((prev) => !prev);
   };
+  const getArrowClasses = (position: PopoverPosition) => {
+    const base = "border-solid absolute ";
+    const size = "border-[12px]";
+
+    switch (position) {
+      case "top":
+        return `${base} ${size} border-t-black top-full left-1/2 -translate-x-1/2 border-t-[8px] border-l-transparent border-r-transparent border-b-0`;
+      case "bottom":
+        return `${base} ${size} border-b-black bottom-full left-1/2 -translate-x-1/2 border-b-[8px] border-l-transparent border-r-transparent border-t-0`;
+      case "left":
+        return `${base} ${size} border-l-black left-full top-1/2 -translate-y-1/2 border-l-[8px] border-t-transparent border-b-transparent border-r-0`;
+      case "right":
+        return `${base} ${size} border-r-black right-full top-1/2 -translate-y-1/2 border-r-[8px] border-t-transparent border-b-transparent border-l-0`;
+      default:
+        return "";
+    }
+  };
 
   return (
     <div
@@ -87,6 +104,8 @@ const Popover = ({
             position
           )} ${className}`}
         >
+          <div className={`absolute w-0 h-0 ${getArrowClasses(position)}`} />
+
           {content}
         </div>
       )}
