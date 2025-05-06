@@ -142,9 +142,19 @@ const Select = ({
         return (
           <span
             key={val}
-            className="bg-primary text-white text-xs px-2 py-1 rounded-full"
+            className="bg-primary text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"
           >
             {option?.label ?? val}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleSelect(val);
+              }}
+              className="ml-1  text-white text-xl hover:text-red-300 focus:outline-none"
+            >
+              ×
+            </button>
           </span>
         );
       });
