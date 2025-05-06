@@ -102,8 +102,8 @@ const Modal = ({
                 className={`${
                   variant === "danger"
                     ? "bg-red-400 hover:bg-red-500"
-                    : "bg-secondary "
-                } px-[6px] pt-0.5 text-center  hover:bg-primary rounded-full  text-background  text-sm `}
+                    : "bg-secondary hover:bg-primary"
+                } px-[6px] pt-0.5 text-center   rounded-full  text-background  text-sm `}
               >
                 X
               </button>
