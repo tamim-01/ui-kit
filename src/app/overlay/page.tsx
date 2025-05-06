@@ -94,7 +94,9 @@ const OverlayExamples = () => {
         size="full"
         variant="ghost"
         showCloseButton
-        header={<h2 className="text-2xl font-bold ">Fullscreen Modal</h2>}
+        header={
+          <h2 className="text-2xl w-full font-bold ">Fullscreen Modal</h2>
+        }
       >
         <div className="text-center mt-20">
           <p className="text-primary-foreground">

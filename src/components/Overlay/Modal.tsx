@@ -84,9 +84,18 @@ const Modal = ({
         onClick={(e) => e.stopPropagation()}
       >
         {header && (
-          <div className="flex mb-4 flex-row justify-between items-center">
-            {size === "full" && <div></div>}
-            <div className=" text-lg font-semibold">{header}</div>
+          <div
+            className={`flex mb-4 flex-row ${
+              size === "full" ? "justify-end" : "justify-between"
+            }  items-center`}
+          >
+            <div
+              className={`text-lg font-semibold w-full ${
+                size === "full" ? "text-center  pl-[21px] " : "text-left"
+              }text-center`}
+            >
+              {header}
+            </div>
             {showCloseButton && (
               <button
                 onClick={onClose}
