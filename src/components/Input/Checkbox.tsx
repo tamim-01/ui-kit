@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 
 interface CheckboxProps {
   value?: boolean;
@@ -58,17 +58,18 @@ const Checkbox: React.FC<CheckboxProps> = ({
   name,
   errorMessage,
 }) => {
+  const generatedId = useId();
+  const inputId = id || name || generatedId;
   const state = disabled ? "disabled" : error ? "error" : "default";
   const sizeClass = checkboxSizes[size];
   const variantClass = checkboxVariants[variant][state];
 
   return (
     <div className="flex flex-col">
-      {" "}
       <div className={`flex items-center gap-2 ${className}`}>
         <input
           type="checkbox"
-          id={id || name}
+          id={inputId}
           name={name}
           checked={value}
           onChange={onChange}
@@ -79,7 +80,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         />
         {label && (
           <label
-            htmlFor={id || name}
+            htmlFor={inputId}
             className={`cursor-pointer ${
               disabled ? "text-muted-foreground" : "text-primary-foreground"
             }`}
