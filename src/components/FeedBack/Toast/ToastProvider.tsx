@@ -22,64 +22,66 @@ interface ToastContextType {
   removeToast: (id: string) => void;
 }
 
-const iconsVariants = {
-  success: (
+const iconsVariants: Record<NonNullable<Toast["type"]>, ReactNode> = {
+  info: (
     <svg
-      className="w-4 h-4"
+      className="w-5 h-5 text-blue-500"
       fill="none"
       stroke="currentColor"
+      strokeWidth={2}
       viewBox="0 0 24 24"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2"
-        d="M5 13l4 4L19 7"
+        d="M13 16h-1v-4h-1m1-4h.01"
       />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 20.5C6.753 20.5 2.5 16.247 2.5 11S6.753 1.5 12 1.5 21.5 5.753 21.5 11 17.247 20.5 12 20.5Z"
+      />
+    </svg>
+  ),
+  success: (
+    <svg
+      className="w-5 h-5 text-green-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
     </svg>
   ),
   error: (
     <svg
-      className="w-4 h-4"
+      className="w-5 h-5 text-red-500"
       fill="none"
       stroke="currentColor"
+      strokeWidth={2}
       viewBox="0 0 24 24"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2"
         d="M6 18L18 6M6 6l12 12"
       />
     </svg>
   ),
   warning: (
     <svg
-      className="w-4 h-4"
+      className="w-5 h-5 text-yellow-500"
       fill="none"
       stroke="currentColor"
+      strokeWidth={2}
       viewBox="0 0 24 24"
     >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01" />
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2"
-        d="M12 9v2m0 4h.01M4.93 4.93l14.14 14.14"
-      />
-    </svg>
-  ),
-  info: (
-    <svg
-      className="w-4 h-4"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M13 16h-1v-4h-1m1-4h.01"
+        d="M10.29 3.86L1.82 18a1.25 1.25 0 001.08 1.88h18.2a1.25 1.25 0 001.08-1.88L13.71 3.86a1.25 1.25 0 00-2.42 0z"
       />
     </svg>
   ),
@@ -102,7 +104,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
 
     setTimeout(() => {
       removeToast(id);
-    }, toast.duration ?? 3000);
+    }, toast.duration ?? 6000);
   };
 
   const removeToast = (id: string) => {
@@ -139,7 +141,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
           {grouped[position].map((toast) => (
             <div
               key={toast.id}
-              className={`flex items-start gap-2 rounded px-4 py-3 text-sm shadow transition-all duration-300 animate-slide-in
+              className={`flex items-center justify-center gap-2 rounded px-4 py-3 text-sm shadow transition-all duration-300 animate-slide-in
               ${
                 toast.type === "success"
                   ? "bg-green-100 text-green-800"
@@ -155,6 +157,22 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
                 {toast.type && iconsVariants[toast.type]}
               </span>
               <span>{toast.message}</span>
+              <span
+                className={`cursor-pointer px-[6px] pt-0.5 text-center    ${
+                  toast.type === "success"
+                    ? "bg-green-300 "
+                    : toast.type === "error"
+                    ? "bg-red-300 "
+                    : toast.type === "warning"
+                    ? "bg-yellow-300 "
+                    : "bg-gray-300 "
+                }   rounded-full text-center  text-white  hover:opacity-70 transition text-sm font-bold`}
+                onClick={() => {
+                  removeToast(toast.id);
+                }}
+              >
+                ×
+              </span>
             </div>
           ))}
         </div>
