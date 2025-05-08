@@ -104,7 +104,7 @@ const ButtonExamples = () => {
           <p className="text-primary-foreground mb-4">
             Use disabled buttons for actions that are not currently available.
           </p>
-          <Button variant="disabled">Unavailable Action</Button>
+          <Button disabled>Unavailable Action</Button>
         </div>
       </section>
       <section className="space-y-6">
