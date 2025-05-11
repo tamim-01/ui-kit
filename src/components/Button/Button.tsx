@@ -2,11 +2,12 @@ import React from "react";
 import LoadingSpinner from "../FeedBack/LoadingSpinner";
 
 const variants = {
-  primary: " bg-primary hover:brightness-120 border-none  ",
-  secondary: "  border-primary hover:bg-secondary   ",
-  disabled: " border-muted  opacity-50 cursor-not-allowed ",
-  ghost: "  border-none  hover:bg-secondary  ",
-  destructive: " bg-red-600 hover:brightness-140 border-none ",
+  primary: " bg-primary hover:brightness-120 border-none  text-white",
+  secondary: "  border-primary hover:bg-secondary text-primary",
+  disabled:
+    " border-muted  opacity-50 cursor-not-allowed text-muted-foreground ",
+  ghost: "  border-none  hover:bg-secondary  text-primary",
+  destructive: " bg-red-600 hover:brightness-140 border-none text-white ",
 };
 const sizes = {
   sm: "text-sm px-3 py-1.5",
@@ -44,32 +45,14 @@ const Button = ({
         variants[variant]
       } ${sizes[size]} ${className} ${
         disabled || loading ? " " : "active:scale-[0.85]  duration-200"
-      } ${
-        loading
-          ? variant === "destructive"
-            ? "text-red-600"
-            : disabled
-            ? "text-background"
-            : variant === "ghost" || variant === "secondary"
-            ? "text-background hover:text-secondary"
-            : variant === "primary"
-            ? "text-primary"
-            : ""
-          : variant === "destructive" || variant === "primary"
-          ? "text-white"
-          : disabled
-          ? "text-black"
-          : variant === "ghost" || variant === "secondary"
-          ? "text-primary"
-          : ""
-      }`}
+      } `}
     >
       {loading && (
         <div className="absolute self-center ">
           <LoadingSpinner />
         </div>
       )}
-      {children}
+      <div className={`${loading && "invisible"}`}> {children}</div>
     </button>
   );
 };
