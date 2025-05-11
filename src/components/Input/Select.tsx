@@ -6,6 +6,7 @@ interface Option {
 }
 
 interface SelectProps {
+  searchable?: boolean;
   label?: string;
   placeholder?: string;
   options: Option[];
@@ -25,6 +26,7 @@ interface SelectProps {
 
 const Select = ({
   label,
+  searchable = false,
   placeholder = "Select an option",
   options,
   value,
@@ -41,28 +43,51 @@ const Select = ({
   errorMessage,
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectOptions, setSelectOptions] = useState<Option[]>(options);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [internalValue, setInternalValue] = useState<string | string[]>(
     defaultValue ?? (multiple ? [] : "")
   );
-  const selectRef = useRef<HTMLDivElement>(null);
-
   const isControlled = value !== undefined;
   const currentValue = isControlled ? value : internalValue;
-
-  const handleSelect = (val: string) => {
+  const selectRef = useRef<HTMLDivElement>(null);
+  const selectInputRef = useRef<HTMLInputElement>(null);
+  const handleSearch = (query: string) => {
+    if (query === "") {
+      setSelectOptions(options);
+      return;
+    }
+    const filtered = options.filter((op) => {
+      if (
+        op.label
+          .toLocaleLowerCase()
+          .trim()
+          .includes(query.toLocaleLowerCase().trim()) ||
+        op.value
+          .toLocaleLowerCase()
+          .trim()
+          .includes(query.toLocaleLowerCase().trim())
+      ) {
+        return op;
+      }
+    });
+    setSelectOptions(filtered);
+  };
+  const handleSelect = (option: Option) => {
     if (multiple) {
       const newValues = Array.isArray(currentValue)
-        ? currentValue.includes(val)
-          ? currentValue.filter((v) => v !== val)
-          : [...currentValue, val]
-        : [val];
+        ? currentValue.includes(option.value)
+          ? currentValue.filter((v) => v !== option.value)
+          : [...currentValue, option.value]
+        : [option.value];
 
       if (onChange) onChange(newValues);
       else setInternalValue(newValues);
     } else {
-      if (onChange) onChange(val);
-      else setInternalValue(val);
+      if (onChange) onChange(option.value);
+      else setInternalValue(option.value);
+      setSelectOptions(options);
+      selectInputRef.current!.value = option.label;
       setIsOpen(false);
     }
   };
@@ -80,18 +105,18 @@ const Select = ({
       case "ArrowDown":
         e.preventDefault();
         setFocusedIndex((prev) =>
-          prev === null || prev === options.length - 1 ? 0 : prev + 1
+          prev === null || prev === selectOptions.length - 1 ? 0 : prev + 1
         );
         break;
       case "ArrowUp":
         e.preventDefault();
         setFocusedIndex((prev) =>
-          prev === null || prev === 0 ? options.length - 1 : prev - 1
+          prev === null || prev === 0 ? selectOptions.length - 1 : prev - 1
         );
         break;
       case "Enter":
         if (focusedIndex !== null) {
-          handleSelect(options[focusedIndex].value);
+          handleSelect(selectOptions[focusedIndex]);
         }
         break;
       case "Escape":
@@ -134,44 +159,75 @@ const Select = ({
 
   const renderSelected = () => {
     if (multiple && Array.isArray(currentValue)) {
-      if (currentValue.length === 0) {
+      if (currentValue.length === 0 && !searchable) {
         return <span className="text-muted-foreground">{placeholder}</span>;
       }
-      return currentValue.map((val) => {
-        const option = options.find((o) => o.value === val);
-        return (
-          <span
-            key={val}
-            className="bg-primary text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"
-          >
-            {option?.label ?? val}
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleSelect(val);
+      return (
+        <>
+          {currentValue.map((val) => {
+            const option = options.find((o) => o.value === val);
+            return (
+              <span
+                key={val}
+                className="bg-primary text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"
+              >
+                {option?.label ?? val}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (option) {
+                      handleSelect(option);
+                    }
+                  }}
+                  className="ml-1  text-white text-xl hover:text-red-300 focus:outline-none"
+                >
+                  ×
+                </button>
+              </span>
+            );
+          })}
+          {searchable && (
+            <input
+              placeholder={placeholder}
+              onChange={(e) => {
+                setIsOpen(true);
+                handleSearch(e.target.value);
               }}
-              className="ml-1  text-white text-xl hover:text-red-300 focus:outline-none"
-            >
-              ×
-            </button>
-          </span>
-        );
-      });
+              className=" outline-0  w-full placeholder:text-muted-foreground"
+            />
+          )}
+        </>
+      );
     } else {
       const selectedOption = options.find((o) => o.value === currentValue);
       return (
-        selectedOption?.label ?? (
-          <span className="text-muted-foreground">{placeholder}</span>
-        )
+        <>
+          {searchable ? (
+            <input
+              placeholder={placeholder}
+              ref={selectInputRef}
+              onChange={(e) => {
+                setIsOpen(true);
+                setInternalValue(e.target.value);
+                handleSearch(e.target.value);
+              }}
+              className=" outline-0 w-full placeholder:text-muted-foreground"
+            />
+          ) : (
+            selectedOption?.label ?? (
+              <span className="text-muted-foreground">{placeholder}</span>
+            )
+          )}
+        </>
       );
     }
   };
 
   const isSelected = (val: string) => {
     return multiple && Array.isArray(currentValue)
-      ? currentValue.includes(val)
-      : currentValue === val;
+      ? currentValue.includes(val.toLowerCase().trim())
+      : currentValue === val.toLowerCase().trim();
   };
 
   return (
@@ -196,14 +252,14 @@ const Select = ({
 
       {isOpen && (
         <ul className="absolute z-50 mt-1 w-full bg-secondary border border-input rounded shadow-md max-h-60 overflow-auto">
-          {options.length > 0 ? (
-            options.map((option, i) => {
+          {selectOptions.length > 0 ? (
+            selectOptions.map((option, i) => {
               const selected = isSelected(option.value);
               return (
                 <li
                   key={option.value}
                   className={optionStyles(i === focusedIndex, selected)}
-                  onClick={() => handleSelect(option.value)}
+                  onClick={() => handleSelect(option)}
                   onMouseEnter={() => setFocusedIndex(i)}
                 >
                   {option.label}

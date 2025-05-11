@@ -286,11 +286,11 @@ const InputExamples = () => {
         </div>
       </section>
 
-      <section className="space-y-6">
+      <section className="space-y-6 mb-72">
         <h2 className="text-xl font-bold text-primary">Custom Select Inputs</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Select
-            label="Favorite Fruit"
+            label="solo select"
             options={[
               { label: "Apple", value: "apple" },
               { label: "Banana", value: "banana" },
@@ -303,7 +303,38 @@ const InputExamples = () => {
           />
 
           <Select
-            label="Skills"
+            label="multiple"
+            multiple
+            options={[
+              { label: "HTML", value: "html" },
+              { label: "CSS", value: "css" },
+              { label: "JavaScript", value: "javascript" },
+              { label: "React", value: "react" },
+              { label: "TypeScript", value: "typescript" },
+            ]}
+            placeholder="Select your skills"
+            description="You can select multiple skills."
+            variant="default"
+            fullWidth
+          />
+          <Select
+            label="Searchable "
+            searchable
+            options={[
+              { label: "HTML", value: "html" },
+              { label: "CSS", value: "css" },
+              { label: "JavaScript", value: "javascript" },
+              { label: "React", value: "react" },
+              { label: "TypeScript", value: "typescript" },
+            ]}
+            placeholder="Select your skills"
+            description="You can select multiple skills."
+            variant="default"
+            fullWidth
+          />
+          <Select
+            label="Searchable multiple"
+            searchable
             multiple
             options={[
               { label: "HTML", value: "html" },
