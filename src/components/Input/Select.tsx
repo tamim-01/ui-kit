@@ -194,7 +194,7 @@ const Select = ({
                 setIsOpen(true);
                 handleSearch(e.target.value);
               }}
-              className=" outline-0  w-full placeholder:text-muted-foreground"
+              className=" outline-0   placeholder:text-muted-foreground"
             />
           )}
         </>
