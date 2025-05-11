@@ -159,10 +159,12 @@ const OverlayExamples = () => {
         {positions.map((pos) => (
           <Drawer
             key={pos}
+            rounded="4xl"
             open={openDrawer === pos}
             onClose={() => setOpenDrawer(null)}
             position={pos}
             size="fit"
+            outlined
           >
             <div className="p-4 space-y-2">
               <h3 className="text-lg font-medium capitalize">{pos} Drawer</h3>

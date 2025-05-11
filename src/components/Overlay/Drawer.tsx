@@ -9,6 +9,8 @@ interface DrawerProps {
   size?: keyof typeof sizeMap;
   children: ReactNode;
   className?: string;
+  rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "full";
+  outlined?: boolean;
 }
 
 const sizeMap = {
@@ -26,6 +28,8 @@ const Drawer = ({
   size = "fit",
   children,
   className,
+  outlined = false,
+  rounded = "md",
 }: DrawerProps) => {
   const [isMounted, setIsMounted] = useState(open);
   const [isVisible, setIsVisible] = useState(open);
@@ -54,22 +58,30 @@ const Drawer = ({
 
   const positionStyles = {
     right: {
-      base: "top-0 right-0 h-full",
+      base: `top-0 right-0 h-full  rounded-l-${rounded} ${
+        outlined && "border-primary border-l"
+      } `,
       enter: "translate-x-0",
       exit: "translate-x-full",
     },
     left: {
-      base: "top-0 left-0 h-full",
+      base: `top-0 left-0 h-full rounded-r-${rounded} ${
+        outlined && "border-primary border-r"
+      } `,
       enter: "translate-x-0",
       exit: "-translate-x-full",
     },
     top: {
-      base: "top-0 left-0 w-full",
+      base: `top-0 left-0 w-full  rounded-b-${rounded} ${
+        outlined && "border-primary border-b"
+      } `,
       enter: "translate-y-0",
       exit: "-translate-y-full",
     },
     bottom: {
-      base: "bottom-0 left-0 w-full",
+      base: `bottom-0 left-0 w-full  rounded-t-${rounded} ${
+        outlined && "border-primary border-t"
+      } `,
       enter: "translate-y-0",
       exit: "translate-y-full",
     },
@@ -92,7 +104,7 @@ const Drawer = ({
       <div
         className={`absolute bg-background shadow-lg transform transition-transform duration-300 overflow-y-auto    ${
           positionStyles.base
-        }
+        } 
        ${isVisible ? positionStyles.enter : positionStyles.exit}
        ${sizeClass}
        ${className}`}
