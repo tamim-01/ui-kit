@@ -15,7 +15,8 @@ const TabsTrigger = ({ value, children }: TabsTriggerProps) => {
   const isActive = context.activeValue === value;
   const { variant = "underline" } = context;
 
-  const baseClasses = "px-4 py-2 text-sm font-medium transition-colors";
+  const baseClasses =
+    "px-4 py-2 text-sm font-medium transition-colors cursor-pointer";
 
   const variantClasses = {
     underline: isActive
