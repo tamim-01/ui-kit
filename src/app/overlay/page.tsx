@@ -159,7 +159,7 @@ const OverlayExamples = () => {
         {positions.map((pos) => (
           <Drawer
             key={pos}
-            rounded="4xl"
+            rounded="xl"
             open={openDrawer === pos}
             onClose={() => setOpenDrawer(null)}
             position={pos}
