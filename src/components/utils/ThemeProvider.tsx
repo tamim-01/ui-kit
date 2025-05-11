@@ -69,6 +69,7 @@ const ThemeProvider = () => {
         onClose={() => setOpenDrawer(false)}
         position="left"
         size="fit"
+        rounded="xl"
       >
         <section className="flex flex-col gap-8 p-8 min-w-[250px]">
           <div>
