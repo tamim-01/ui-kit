@@ -45,13 +45,13 @@ const Switch = ({
 
   const thumbTranslate =
     size === "sm"
-      ? "translate-x-3"
+      ? "translate-x-3.5"
       : size === "lg"
-      ? "translate-x-6.5"
-      : "translate-x-4";
+      ? "translate-x-7"
+      : "translate-x-5";
 
   const thumbSize =
-    size === "sm" ? "w-4 h-4" : size === "lg" ? "w-6 h-6" : "w-5 h-5";
+    size === "sm" ? "w-3.5 h-3.5" : size === "lg" ? "w-5 h-5" : "w-4 h-4";
 
   const trackClasses = `${baseSize} relative inline-block rounded-full transition-colors duration-300 ${
     variants[variant]
@@ -59,7 +59,7 @@ const Switch = ({
     fullWidth ? "w-full" : ""
   } ${className}`;
 
-  const thumbClasses = `absolute top-1/2 left-1 bg-white rounded-full transform -translate-y-1/2 transition-transform duration-300 ease-in-out ${thumbSize} ${
+  const thumbClasses = `absolute shadow-md top-1/2 left-1 bg-white rounded-full transform -translate-y-1/2 transition-transform duration-300 ease-in-out ${thumbSize} ${
     isOn ? thumbTranslate : "translate-x-0"
   }`;
 
