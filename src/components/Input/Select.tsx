@@ -87,7 +87,10 @@ const Select = ({
       if (onChange) onChange(option.value);
       else setInternalValue(option.value);
       setSelectOptions(options);
-      selectInputRef.current!.value = option.label;
+      if (selectInputRef.current !== null) {
+        selectInputRef.current.value = option.label;
+      }
+
       setIsOpen(false);
     }
   };
