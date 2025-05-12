@@ -43,7 +43,7 @@ const Badge = ({
       {icon && iconPosition === "start" && (
         <span className="inline-flex">{icon}</span>
       )}
-      <span>{children}</span>
+      {children}
       {icon && iconPosition === "end" && (
         <span className="inline-flex">{icon}</span>
       )}
