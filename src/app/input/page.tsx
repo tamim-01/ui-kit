@@ -205,6 +205,18 @@ const InputExamples = () => {
             accept="image/*"
             variant="default"
             inputSize="md"
+            buttonText="Choose Files"
+            fullWidth
+          />
+
+          <FileInput
+            label="Droppable Upload"
+            accept="image/*"
+            variant="default"
+            buttonText="Choose Files"
+            multiple
+            droppable
+            inputSize="md"
             fullWidth
           />
 
