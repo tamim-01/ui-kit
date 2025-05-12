@@ -30,6 +30,9 @@
   --color-muted-foreground: #c9d0da;
   --color-border: #4b5563;
   --color-border-foreground: #d1d5db;
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
 }
 
 [data-theme="forest"] {
@@ -61,8 +64,6 @@
   --color-border: #bae6fd;
   --color-border-foreground: #0369a1;
 }
-
-
 
 [data-theme="purple"] {
   --color-primary: #9333ea;
@@ -109,8 +110,7 @@
   --color-border-foreground: #9d174d;
 }
 
-
-body { 
+body {
   background-color: var(--color-background);
   color: var(--color-foreground);
 }
