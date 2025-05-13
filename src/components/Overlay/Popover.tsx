@@ -74,13 +74,13 @@ const Popover = ({
 
     switch (position) {
       case "top":
-        return `${base} ${size} border-t-black top-full left-1/2 -translate-x-1/2 border-t-[8px] border-l-transparent border-r-transparent border-b-0`;
+        return `${base} ${size} border-t-primary-foreground top-full left-1/2 -translate-x-1/2 border-t-[8px] border-l-transparent border-r-transparent border-b-0`;
       case "bottom":
-        return `${base} ${size} border-b-black bottom-full left-1/2 -translate-x-1/2 border-b-[8px] border-l-transparent border-r-transparent border-t-0`;
+        return `${base} ${size} border-b-primary-foreground bottom-full left-1/2 -translate-x-1/2 border-b-[8px] border-l-transparent border-r-transparent border-t-0`;
       case "left":
-        return `${base} ${size} border-l-black left-full top-1/2 -translate-y-1/2 border-l-[8px] border-t-transparent border-b-transparent border-r-0`;
+        return `${base} ${size} border-l-primary-foreground left-full top-1/2 -translate-y-1/2 border-l-[8px] border-t-transparent border-b-transparent border-r-0`;
       case "right":
-        return `${base} ${size} border-r-black right-full top-1/2 -translate-y-1/2 border-r-[8px] border-t-transparent border-b-transparent border-l-0`;
+        return `${base} ${size} border-r-primary-foreground right-full top-1/2 -translate-y-1/2 border-r-[8px] border-t-transparent border-b-transparent border-l-0`;
       default:
         return "";
     }
