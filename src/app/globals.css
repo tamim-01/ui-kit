@@ -34,7 +34,7 @@
     filter: invert(1);
   }
 }
-
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 [data-theme="forest"] {
   --color-primary: #22c55e;
   --color-primary-foreground: #14532d;
