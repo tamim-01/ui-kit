@@ -9,6 +9,9 @@ const ButtonExamples = () => {
     secondary: false,
     destructive: false,
     ghost: false,
+    danger: false,
+    warning: false,
+    info: false,
   });
 
   const handleButtonClick = (buttonType: string) => {
@@ -77,7 +80,6 @@ const ButtonExamples = () => {
                 Ghost Action
               </Button>
             </div>
-
             <div className="p-4 rounded-lg border border-muted shadow-lg">
               <h3 className="text-lg font-medium text-primary mb-3">
                 Destructive Button
@@ -93,18 +95,67 @@ const ButtonExamples = () => {
               >
                 Delete Item
               </Button>
+            </div>{" "}
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="p-4 rounded-lg border border-muted shadow-lg">
+              <h3 className="text-lg font-medium text-primary mb-3">
+                Dangerous Button
+              </h3>
+              <p className="text-primary-foreground mb-4">
+                Use Danger buttons for Dangerous or error actions.
+              </p>
+              <Button
+                variant="danger"
+                onClick={() => handleButtonClick("danger")}
+                loading={isLoading.danger}
+              >
+                dangerous Action
+              </Button>
+            </div>
+            <div className="p-4 rounded-lg border border-muted shadow-lg">
+              <h3 className="text-lg font-medium text-primary mb-3">
+                Disabled Button
+              </h3>
+              <p className="text-primary-foreground mb-4">
+                Use disabled buttons for actions that are not currently
+                available.
+              </p>
+              <Button disabled>Unavailable Action</Button>
             </div>
           </div>
-        </div>
-
-        <div className="p-4 rounded-lg border border-muted shadow-lg">
-          <h3 className="text-lg font-medium text-primary mb-3">
-            Disabled Button
-          </h3>
-          <p className="text-primary-foreground mb-4">
-            Use disabled buttons for actions that are not currently available.
-          </p>
-          <Button disabled>Unavailable Action</Button>
+          <div className="flex flex-col gap-4">
+            <div className="p-4 rounded-lg border border-muted shadow-lg">
+              <h3 className="text-lg font-medium text-primary mb-3">
+                warning Button
+              </h3>
+              <p className="text-primary-foreground mb-4">
+                Use warning buttons for showing a warning action .
+              </p>
+              <Button
+                variant="warning"
+                onClick={() => handleButtonClick("warning")}
+                loading={isLoading.warning}
+              >
+                warning Action
+              </Button>
+            </div>
+            <div className="p-4 rounded-lg border border-muted shadow-lg">
+              <h3 className="text-lg font-medium text-primary mb-3">
+                info Button
+              </h3>
+              <p className="text-primary-foreground mb-4">
+                Use info buttons for showing some information.
+              </p>
+              <Button
+                variant="info"
+                onClick={() => handleButtonClick("info")}
+                loading={isLoading.info}
+              >
+                info Action
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
       <section className="space-y-6">
@@ -159,6 +210,45 @@ const ButtonExamples = () => {
           </Button>
 
           <Button variant="ghost" size="lg">
+            Large Button
+          </Button>
+        </div>
+        <div className="flex flex-wrap gap-4 items-center p-4 rounded-lg border border-muted shadow-lg">
+          <Button variant="danger" size="sm">
+            Small Button
+          </Button>
+
+          <Button variant="danger" size="md">
+            Medium Button
+          </Button>
+
+          <Button variant="danger" size="lg">
+            Large Button
+          </Button>
+        </div>
+        <div className="flex flex-wrap gap-4 items-center p-4 rounded-lg border border-muted shadow-lg">
+          <Button variant="warning" size="sm">
+            Small Button
+          </Button>
+
+          <Button variant="warning" size="md">
+            Medium Button
+          </Button>
+
+          <Button variant="warning" size="lg">
+            Large Button
+          </Button>
+        </div>
+        <div className="flex flex-wrap gap-4 items-center p-4 rounded-lg border border-muted shadow-lg">
+          <Button variant="info" size="sm">
+            Small Button
+          </Button>
+
+          <Button variant="info" size="md">
+            Medium Button
+          </Button>
+
+          <Button variant="info" size="lg">
             Large Button
           </Button>
         </div>

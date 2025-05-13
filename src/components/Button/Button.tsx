@@ -8,6 +8,11 @@ const variants = {
     " border-muted  opacity-50 cursor-not-allowed text-muted-foreground ",
   ghost: "  border-none  hover:bg-secondary  text-primary",
   destructive: " bg-red-600 hover:brightness-140 border-none text-white ",
+  danger:
+    "  border-red-600 hover:bg-red-100 text-red-600 dark:hover:bg-red-900",
+  warning:
+    "  border-yellow-600 hover:bg-yellow-100 text-yellow-600 dark:hover:bg-yellow-900",
+  info: " bg-secondary hover:brightness-120 border-none  text-white",
 };
 const sizes = {
   sm: "text-sm px-3 py-1.5",
