@@ -82,10 +82,10 @@ const Select = ({
         : [option.value];
 
       if (onChange) onChange(newValues);
-      else setInternalValue(newValues);
+      setInternalValue(newValues);
     } else {
       if (onChange) onChange(option.value);
-      else setInternalValue(option.value);
+      setInternalValue(option.value);
       setSelectOptions(options);
       if (selectInputRef.current !== null) {
         selectInputRef.current.value = option.label;
